@@ -2,7 +2,7 @@ import minimalmodbus
 
 from measurements import read_modbus_device
 
-BAUDRATE = 2400
+BAUDRATE = 9600
 
 
 class KwhMeter:
