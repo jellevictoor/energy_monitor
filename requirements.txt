@@ -1,5 +1,0 @@
-pyserial
-minimalmodbus
-Flask
-prometheus_client
-prometheus-flask-exporter
