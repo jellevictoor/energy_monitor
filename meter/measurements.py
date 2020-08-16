@@ -37,29 +37,5 @@ class Measurement:
         print('Total reactive energy: {0:.3f} kvarh'.format(self.total_reactive_energy))
         print('Current Yield (V*A): {0:.1f} Watt'.format(self.volts * self.current))
 
-def read_modbus_device(device):
-    measurement = Measurement()
-    modbus_device = device.rs485
-    measurement.volts = try_read(modbus_device, 0, 4, 2)
-    measurement.current = try_read(modbus_device, 6, 4, 2)
-    measurement.active_power = try_read(modbus_device, 12, 4, 2)
-    measurement.apparent_power = try_read(modbus_device, 18, 4, 2)
-    measurement.reactive_power = try_read(modbus_device, 24, 4, 2)
-    measurement.power_factor = try_read(modbus_device, 30, 4, 2)
-    measurement.phase_angle = try_read(modbus_device, 36, 4, 2)
-    measurement.frequency = try_read(modbus_device, 70, 4, 2)
-    measurement.import_active_energy = try_read(modbus_device, 72, 4, 2)
-    measurement.export_active_energy = try_read(modbus_device, 74, 4, 2)
-    measurement.import_reactive_energy = try_read(modbus_device, 76, 4, 2)
-    measurement.export_reactive_energy = try_read(modbus_device, 78, 4, 2)
-    measurement.total_active_energy = try_read(modbus_device, 342, 4, 2)
-    measurement.total_reactive_energy = try_read(modbus_device, 344, 4, 2)
-    return measurement
 
-def try_read(modbus_device, registeraddress, function_code, number_of_registers):
-    try:
-        return modbus_device.read_float(registeraddress, functioncode=function_code, number_of_registers=number_of_registers)
-    except:
-        print("Could not read")
-        return -1
 

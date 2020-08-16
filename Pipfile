@@ -10,6 +10,9 @@ pymodbus = "*"
 flask = "*"
 prometheus-flask-exporter = "*"
 minimalmodbus = "*"
+websockets = "*"
+influxdb = "*"
+influxdbclient = "*"
 
 [requires]
 python_version = "3.7"
