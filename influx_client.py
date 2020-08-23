@@ -9,6 +9,7 @@ class InfluxClient:
         self.port = port
         self.db = db
         self.client = None
+        self.connect()
 
     def connect(self):
         self.client = InfluxDBClient(self.host, self.port, self.db)
