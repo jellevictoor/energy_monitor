@@ -9,7 +9,7 @@ class InfluxClient:
         self.port = port
         self.db = db
 
-    async def connect(self):
+    def connect(self):
         self.client = InfluxDBClient(self.host, self.port, self.db)
 
     def write_value(self, body):
@@ -19,4 +19,4 @@ class InfluxClient:
             print('Connection with server closed, reconnecting')
             self.client.close()
             time.sleep(2)
-            await self.connect()
+            self.connect()
